@@ -5,6 +5,7 @@ import Controls from './src/components/Controls';
 
 import NewHighScoreForm from './src/components/NewHighScoreForm';
 import HighScoreList from './src/components/HighScoreList';
+import HighScore from './src/components/HighScore';
 
 
 import Welcome from './src/components/Welcome';
@@ -21,7 +22,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       BallPosition: 200,
-      masterHighScoreList: []
+      masterHighScoreList: [
+        {name: 'john'}
+      ]
     }
 
     this.handleAddingNewHighScoreToList = this.handleAddingNewHighScoreToList.bind(this);
@@ -35,7 +38,7 @@ class App extends React.Component {
     ), 10);
   }
 
-  handleAddingNewHighScoreToList(newHighScore) {
+  handleAddingNewHighScoreToList=(newHighScore)=> {
     let newHighScoreList = this.state.masterHighScoreList.slice();
     newHighScoreList.push(newHighScore);
     this.setState({masterHighScoreList: newHighScoreList});
@@ -57,7 +60,7 @@ class App extends React.Component {
         // need to add Routes
         <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
 
-        <HighScoreList screenProps={{highScoreList: this.state.masterHighScoreList}} />
+        <HighScoreList highScoreList= {this.state.masterHighScoreList} />
       </View>
     );
   }
@@ -80,9 +83,12 @@ const AppNavigator = createStackNavigator({
   },
   HighScore: {
     screen: HighScoreList,
+  },
+  HighScoreForm: {
+    screen: HighScore,
   }
 }, {
-    initialRouteName: 'HighScore',
+    initialRouteName: 'HighScoreForm',
 });
 
 

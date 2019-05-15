@@ -8,7 +8,7 @@ function HighScoreList(props){
 
     <View>
 
-      {this.screenProps.highScoreList.map((highScore, index) =>
+      {props.highScoreList.map((highScore, index) =>
         <HighScore name={highScore.name}
           key={index}/>
       )}

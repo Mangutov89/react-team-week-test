@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button, Alert, Form, Input } from 'react-native';
 
-function NewHighScoreForm(){
+function NewHighScoreForm(props){
 
   let _name = null;
 
@@ -15,14 +15,17 @@ function NewHighScoreForm(){
 
   return (
     <View>
-      <form onSubmit={handleNewHighScoreFormSubmission}>
-        <input
+      <Form>
+        <Input
           type='text'
           id='name'
           placeholder='Your Name'
           ref={(input) => {_name = input;}}/>
-        <button type='submit'>Submit High Score</button>
-      </form>
+
+        <Button color="#333333"
+          title= ""
+          onPress={handleNewHighScoreFormSubmission} />
+      </Form>
     </View>
   )
 }

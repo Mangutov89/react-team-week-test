@@ -20,7 +20,7 @@ export default class Welcome extends React.Component {
             <View style={styles.background}>
               <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
               </ImageBackground>
-            < /View>
+            </View>
               <View style={styles.buttonContainer}>
               <Button color="#FFFFFF"
                 title="START"
